@@ -1,0 +1,118 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1703214052119,
+      "tag": "0000_sparkling_human_robot",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1703214084832,
+      "tag": "0001_graceful_crystal",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1703214228935,
+      "tag": "0002_cooing_warbound",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1703214240583,
+      "tag": "0003_secret_miek",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1703214387901,
+      "tag": "0004_chief_inertia",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1703220016234,
+      "tag": "0005_tiresome_blockbuster",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1703220028631,
+      "tag": "0006_rapid_nick_fury",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1703221985640,
+      "tag": "0007_lucky_ender_wiggin",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1703222002008,
+      "tag": "0008_steep_mariko_yashida",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1703223270534,
+      "tag": "0009_true_mister_sinister",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1703223342169,
+      "tag": "0010_breezy_hulk",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1703223366928,
+      "tag": "0011_flashy_vapor",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1703223378685,
+      "tag": "0012_perfect_havok",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1703223849062,
+      "tag": "0013_nasty_hedge_knight",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "5",
+      "when": 1703223882910,
+      "tag": "0014_productive_tempest",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "5",
+      "when": 1703224280191,
+      "tag": "0015_nervous_robin_chapel",
+      "breakpoints": true
+    }
+  ]
+}
