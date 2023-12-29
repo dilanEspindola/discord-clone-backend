@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "7d44b7fd-99c6-4a93-89ee-035db60b0daa",
-  "prevId": "c7554421-38e5-4cff-abdb-f40adde26eee",
+  "id": "b30ac77f-8f94-4859-8981-2e1cf71e3bd7",
+  "prevId": "47c9889c-0dc9-4cd4-9b58-87790ec0f96f",
   "tables": {
     "users": {
       "name": "users",
@@ -13,6 +13,13 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": true
+        },
+        "name_display": {
+          "name": "name_display",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
         },
         "username": {
           "name": "username",
@@ -42,6 +49,20 @@
           "notNull": false,
           "autoincrement": false,
           "default": false
+        },
+        "profile_picture": {
+          "name": "profile_picture",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "birthday_date": {
+          "name": "birthday_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
         },
         "created_at": {
           "name": "created_at",

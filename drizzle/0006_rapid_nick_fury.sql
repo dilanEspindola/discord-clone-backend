@@ -1,1 +1,0 @@
-ALTER TABLE `users` ADD `created_at` timestamp DEFAULT (now());

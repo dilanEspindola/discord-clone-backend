@@ -1,19 +1,15 @@
-import { DrizzleService } from "@/drizzle/drizzle.service";
-import { profileTable, userTable } from "@/drizzle/schemas";
-import { Controller, Get } from "@nestjs/common";
-import { eq } from "drizzle-orm";
+import { Controller, Get, Inject } from "@nestjs/common";
+import { MySql2Database } from "drizzle-orm/mysql2";
+import { userTable } from "@/drizzle/schemas";
+import { DRIZZLE_PROVIDE } from "@/helpers";
 
 @Controller("users")
 export class UsersController {
-  constructor(private readonly dbService: DrizzleService) {}
+  constructor(@Inject(DRIZZLE_PROVIDE) private readonly db: MySql2Database) {}
 
   @Get("")
   async getUsers() {
-    const users = await this.dbService
-      .db()
-      .select()
-      .from(userTable)
-      .rightJoin(profileTable, eq(userTable.id, profileTable.userId));
+    const users = this.db.select().from(userTable);
     return users;
   }
 }
