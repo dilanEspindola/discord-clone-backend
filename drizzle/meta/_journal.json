@@ -5,57 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1703529338161,
-      "tag": "0000_tan_starhawk",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1703529944746,
-      "tag": "0001_nervous_captain_stacy",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1703530314533,
-      "tag": "0002_unknown_rattler",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1703732849632,
-      "tag": "0003_gigantic_havok",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "5",
-      "when": 1703733477442,
-      "tag": "0004_uneven_union_jack",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "5",
-      "when": 1703733672817,
-      "tag": "0005_safe_norman_osborn",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "5",
-      "when": 1703794813097,
-      "tag": "0006_slim_ultimates",
-      "breakpoints": true
-    },
-    {
-      "idx": 7,
-      "version": "5",
-      "when": 1703797234623,
-      "tag": "0007_condemned_captain_cross",
+      "when": 1704073354471,
+      "tag": "0000_concerned_bastion",
       "breakpoints": true
     }
   ]

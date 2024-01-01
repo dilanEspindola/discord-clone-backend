@@ -20,12 +20,15 @@ dependencies:
   '@nestjs/typeorm':
     specifier: ^10.0.1
     version: 10.0.1(@nestjs/common@10.2.10)(@nestjs/core@10.2.10)(reflect-metadata@0.1.13)(rxjs@7.8.1)(typeorm@0.3.17)
+  '@planetscale/database':
+    specifier: ^1.13.0
+    version: 1.13.0
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
   drizzle-orm:
     specifier: ^0.29.2
-    version: 0.29.2(@types/react@18.2.45)(expo-sqlite@13.2.0)(mysql2@3.6.5)(react@18.2.0)
+    version: 0.29.2(@planetscale/database@1.13.0)(@types/react@18.2.45)(expo-sqlite@13.2.0)(mysql2@3.6.5)(react@18.2.0)
   express:
     specifier: ^4.18.2
     version: 4.18.2
@@ -3301,6 +3304,11 @@ packages:
       tslib: 2.6.2
     dev: true
 
+  /@planetscale/database@1.13.0:
+    resolution: {integrity: sha512-sb9tUoF+Po55o+3PRHZVeH8XzUIABKBKcnq6oBUa+p/2uau/E2EXhnUPXmkC/x7oB6ILBqmqTL6dPP5Dn6d6iA==}
+    engines: {node: '>=16'}
+    dev: false
+
   /@react-native/normalize-color@2.1.0:
     resolution: {integrity: sha512-Z1jQI2NpdFJCVgpY+8Dq/Bt3d+YUi1928Q+/CZm/oh66fzM0RUl54vvuXlPJKybH4pdCZey1eDTPaLHkMPNgWA==}
     dev: false
@@ -5346,7 +5354,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /drizzle-orm@0.29.2(@types/react@18.2.45)(expo-sqlite@13.2.0)(mysql2@3.6.5)(react@18.2.0):
+  /drizzle-orm@0.29.2(@planetscale/database@1.13.0)(@types/react@18.2.45)(expo-sqlite@13.2.0)(mysql2@3.6.5)(react@18.2.0):
     resolution: {integrity: sha512-BhwCwuSQqUoLVc7wtgIkuWexY127Z9+yDbuXU7QWZbMC2XE48jecvAThW9apQaDoaxQmwQ+ObyPfPb4zL4Bgsw==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -5411,6 +5419,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
+      '@planetscale/database': 1.13.0
       '@types/react': 18.2.45
       expo-sqlite: 13.2.0(expo@49.0.21)
       mysql2: 3.6.5

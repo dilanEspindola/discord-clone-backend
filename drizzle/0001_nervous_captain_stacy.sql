@@ -1,1 +1,0 @@
-ALTER TABLE `users` ADD `username` varchar(255) NOT NULL;
