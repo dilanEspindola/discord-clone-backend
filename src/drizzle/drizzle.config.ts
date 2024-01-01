@@ -10,7 +10,7 @@ export default defineConfig({
   strict: true,
   verbose: true,
   dbCredentials: {
-    uri: `mysql://x08xi45yrnswedma3fay:pscale_pw_hjSFuIu5QcL1KCGD0B0vw4hWDfKMx3BZyPK0tVINWgh@aws.connect.psdb.cloud/discord_clone?ssl={"rejectUnauthorized":true}`,
+    uri: process.env.DB_URI,
     //   host: process.env.DB_HOST_LOCAL,
     //   user: process.env.DB_USERNAME_LOCAL,
     //   password: process.env.DB_PASSWORD_LOCAL,
