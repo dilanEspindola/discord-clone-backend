@@ -3,6 +3,7 @@ import { ConfigModule } from "@nestjs/config";
 import { configEnv } from "@/config";
 import { UserModule } from "@/users/users.module";
 import { DrizzleModule } from "./drizzle/drizzle.module";
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [

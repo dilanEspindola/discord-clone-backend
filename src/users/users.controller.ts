@@ -1,15 +1,21 @@
-import { Controller, Get, Inject } from "@nestjs/common";
-import { MySql2Database } from "drizzle-orm/mysql2";
-import { userTable } from "@/drizzle/schemas";
-import { DRIZZLE_PROVIDE } from "@/helpers";
+import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
+import { UsersService } from "./users.service";
+import { createUserDto } from "./dto/create_user.dto";
+import { hashPassword } from '@/helpers'
 
 @Controller("users")
 export class UsersController {
-  constructor(@Inject(DRIZZLE_PROVIDE) private readonly db: MySql2Database) {}
-
+  constructor(private usersService: UsersService) {}
   @Get("")
-  async getUsers() {
-    const users = this.db.select().from(userTable);
-    return users;
+  async getUsers() {}
+
+  @Post('')
+  async signup(@Body() newUser: createUserDto) {
+    try {
+      const hash = await hashPassword(newUser.password)
+      return this.usersService.createUser({...newUser, password: hash})
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
