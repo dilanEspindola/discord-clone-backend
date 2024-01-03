@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: ".env.development" });
 
 export default defineConfig({
-  schema: ["src/drizzle/schemas/schema.ts"],
+  schema: ["schemas/*.ts"],
   driver: "mysql2",
   introspect: { casing: "camel" },
   strict: true,
