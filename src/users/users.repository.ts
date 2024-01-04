@@ -4,16 +4,19 @@ import { Inject } from "@nestjs/common";
 import { eq } from "drizzle-orm";
 import { MySql2Database } from "drizzle-orm/mysql2";
 import { createUserDto } from "./dto/create_user.dto";
+import { IUserRepository } from "./interfaces";
 
-export class UserRepository {
+export class UserRepository implements IUserRepository {
   constructor(@Inject(DRIZZLE_PROVIDE) private readonly db: MySql2Database) {}
 
   getUsers() {
-    return this.db.select().from(userTable);
+    const users = this.db.select().from(userTable);
+    return users;
   }
 
   getUserById(id: string) {
-    return this.db.select().from(userTable).where(eq(userTable.id, id));
+    const user = this.db.select().from(userTable).where(eq(userTable.id, id));
+    return user;
   }
 
   getUserByUsername(username: string) {

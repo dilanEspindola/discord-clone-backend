@@ -1,7 +1,7 @@
-import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post } from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { createUserDto } from "./dto/create_user.dto";
-import { hashPassword } from '@/helpers'
+import { hashPassword } from "@/helpers";
 
 @Controller("users")
 export class UsersController {
@@ -9,11 +9,11 @@ export class UsersController {
   @Get("")
   async getUsers() {}
 
-  @Post('')
+  @Post("")
   async signup(@Body() newUser: createUserDto) {
     try {
-      const hash = await hashPassword(newUser.password)
-      return this.usersService.createUser({...newUser, password: hash})
+      const hash = await hashPassword(newUser.password);
+      return this.usersService.createUser({ ...newUser, password: hash });
     } catch (error) {
       console.log(error);
     }
