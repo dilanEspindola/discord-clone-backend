@@ -11,8 +11,6 @@ async function bootstrap() {
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   });
 
-  console.log(process.env.NODE_ENV);
-
   await app.listen(Number(process.env.PORT) || 4000);
   console.log(`Server running on: ${await app.getUrl()}`);
 }

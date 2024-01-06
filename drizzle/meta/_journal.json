@@ -5,36 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1704073354471,
-      "tag": "0000_concerned_bastion",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1704076144300,
-      "tag": "0001_huge_ultimates",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1704076303143,
-      "tag": "0002_tricky_mister_sinister",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1704081527163,
-      "tag": "0003_messy_serpent_society",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "5",
-      "when": 1704086141867,
-      "tag": "0004_talented_black_tarantula",
+      "when": 1704519757066,
+      "tag": "0000_silky_war_machine",
       "breakpoints": true
     }
   ]

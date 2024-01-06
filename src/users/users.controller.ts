@@ -7,7 +7,9 @@ import { hashPassword } from "@/helpers";
 export class UsersController {
   constructor(private usersService: UsersService) {}
   @Get("")
-  async getUsers() {}
+  async getUsers() {
+    return [];
+  }
 
   @Post("")
   async signup(@Body() newUser: createUserDto) {
