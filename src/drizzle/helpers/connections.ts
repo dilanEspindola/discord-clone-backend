@@ -2,13 +2,13 @@ import { connect, Connection } from "@planetscale/database";
 import mysql from "mysql2/promise";
 
 export const mysqlDrizzleConnection = (): Connection => {
-  const conn = connect({
+  const connection = connect({
     host: <string>process.env.DB_HOST,
     username: <string>process.env.DB_USERNAME,
     password: <string>process.env.DB_PASSWORD,
   });
 
-  return conn;
+  return connection;
 };
 
 export const mysqlLocalConnection = async (): Promise<mysql.Connection> => {
