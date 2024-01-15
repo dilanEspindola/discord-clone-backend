@@ -14,8 +14,6 @@ import { mysqlDrizzleConnection } from "./helpers";
           const conn = mysqlDrizzleConnection();
           const db = drizzle(conn, { schema: schemas });
 
-          console.log(db);
-
           return db;
         } catch (error) {
           console.log(error);

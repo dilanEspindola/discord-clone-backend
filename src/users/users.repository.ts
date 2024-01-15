@@ -3,6 +3,7 @@ import { DRIZZLE_PROVIDE } from "@/helpers";
 import { Inject } from "@nestjs/common";
 import { eq } from "drizzle-orm";
 import { MySql2Database } from "drizzle-orm/mysql2";
+import { v4 as uuid } from "uuid";
 import { createUserDto } from "./dto/create_user.dto";
 import { IUserRepository } from "./interfaces";
 
@@ -16,21 +17,28 @@ export class UserRepository implements IUserRepository {
 
   getUserById(id: string) {
     const user = this.db.select().from(userTable).where(eq(userTable.id, id));
-    return user;
+    return user[0];
   }
 
   getUserByUsername(username: string) {
-    return this.db
+    const user = this.db
       .select()
       .from(userTable)
       .where(eq(userTable.username, username));
+    return user[0];
   }
 
   getUserByEmail(email: string) {
-    return this.db.select().from(userTable).where(eq(userTable.email, email));
+    const user = this.db
+      .select()
+      .from(userTable)
+      .where(eq(userTable.email, email));
+    return user[0];
   }
 
-  createUser(newUser: createUserDto) {
-    return this.db.insert(userTable).values(newUser);
+  async createUser(newUser: createUserDto) {
+    const id = uuid();
+    await this.db.insert(userTable).values({ id, ...newUser });
+    return id;
   }
 }

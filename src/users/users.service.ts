@@ -6,6 +6,10 @@ import { createUserDto } from "./dto/create_user.dto";
 export class UsersService {
   constructor(private userRepository: UserRepository) {}
 
+  getUserById(id: string) {
+    return this.userRepository.getUserById(id);
+  }
+
   createUser(newUser: createUserDto) {
     return this.userRepository.createUser(newUser);
   }

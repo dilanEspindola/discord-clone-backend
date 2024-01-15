@@ -1,3 +1,5 @@
+import { createUserDto } from "../dto/create_user.dto";
+
 export interface IUser {
   id: string;
   visible_name: string;
@@ -11,8 +13,8 @@ export interface IUser {
 
 export interface IUserRepository {
   getUsers(): Promise<IUser[]>;
-  getUserById(id: string): Promise<IUser[]>;
+  getUserById(id: string): Promise<IUser>;
   getUserByUsername(username: string): Promise<IUser>;
   getUserByEmail(email: string): Promise<IUser>;
-  createUser(newUser: Partial<IUser>): Promise<IUser>;
+  createUser(newUser: createUserDto): Promise<string>;
 }
