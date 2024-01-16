@@ -3,6 +3,7 @@ import { ConfigModule } from "@nestjs/config";
 import { configEnv } from "@/config";
 import { UserModule } from "@/users/users.module";
 import { DrizzleModule } from "./drizzle/drizzle.module";
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { DrizzleModule } from "./drizzle/drizzle.module";
     }),
     DrizzleModule,
     UserModule,
+    CommonModule,
   ],
   controllers: [],
   providers: [],

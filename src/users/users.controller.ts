@@ -1,8 +1,9 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post, UsePipes } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { UsersService } from "./users.service";
-import { createUserDto } from "./dto/create_user.dto";
+import { createUserDto, createUserSchema } from "./dto/create_user.dto";
 import { hashPassword } from "@/helpers";
+import { ZodValidationPipe } from "@/common/pipes";
 
 @Controller("users")
 export class UsersController {
@@ -16,6 +17,7 @@ export class UsersController {
   }
 
   @Post("")
+  @UsePipes(new ZodValidationPipe(createUserSchema))
   async signup(@Body() newUser: createUserDto) {
     try {
       const hash = await hashPassword(newUser.password);
