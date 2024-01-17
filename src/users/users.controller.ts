@@ -38,9 +38,9 @@ export class UsersController {
         ...newUser,
         password: hash,
       });
-      console.log(id);
+
       const user = await this.usersService.getUserById(id);
-      console.log(user);
+
       const accesToken = await this.jwtService.signAsync({
         sub: user.id,
         username: user.username,

@@ -19,6 +19,4 @@ import { CommonModule } from "./common/common.module";
   controllers: [],
   providers: [],
 })
-export class AppModule {
-  constructor() {}
-}
+export class AppModule {}
