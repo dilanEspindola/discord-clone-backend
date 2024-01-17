@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, UsePipes } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Param,
+  UsePipes,
+  ParseUUIDPipe,
+} from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { UsersService } from "./users.service";
 import { createUserDto, createUserSchema } from "./dto/create_user.dto";
@@ -13,7 +21,12 @@ export class UsersController {
   ) {}
   @Get("")
   async getUsers() {
-    return [];
+    return await this.usersService.getUsers();
+  }
+
+  @Get(":id")
+  async getUserById(@Param("id", ParseUUIDPipe) id: string) {
+    return await this.usersService.getUserById(id);
   }
 
   @Post("")
@@ -25,7 +38,17 @@ export class UsersController {
         ...newUser,
         password: hash,
       });
-      return await this.usersService.getUserById(id);
+      console.log(id);
+      const user = await this.usersService.getUserById(id);
+      console.log(user);
+      const accesToken = await this.jwtService.signAsync({
+        sub: user.id,
+        username: user.username,
+      });
+      return {
+        user,
+        accesToken,
+      };
     } catch (error) {
       console.log(error);
     }

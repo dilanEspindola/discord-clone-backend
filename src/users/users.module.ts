@@ -6,7 +6,14 @@ import { UsersService } from "./users.service";
 import { UserRepository } from "./users.repository";
 
 @Module({
-  imports: [DrizzleModule, JwtModule],
+  imports: [
+    DrizzleModule,
+    JwtModule.register({
+      global: true,
+      secret: process.env.JWT_SECRET,
+      signOptions: { expiresIn: "10m" },
+    }),
+  ],
   controllers: [UsersController],
   providers: [UsersService, UserRepository],
 })

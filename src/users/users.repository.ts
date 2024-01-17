@@ -15,24 +15,27 @@ export class UserRepository implements IUserRepository {
     return users;
   }
 
-  getUserById(id: string) {
-    const user = this.db.select().from(userTable).where(eq(userTable.id, id));
+  async getUserById(id: string) {
+    const query = this.db.select().from(userTable).where(eq(userTable.id, id));
+    const user = await query.execute();
     return user[0];
   }
 
-  getUserByUsername(username: string) {
-    const user = this.db
+  async getUserByUsername(username: string) {
+    const query = this.db
       .select()
       .from(userTable)
       .where(eq(userTable.username, username));
+    const user = await query.execute();
     return user[0];
   }
 
-  getUserByEmail(email: string) {
-    const user = this.db
+  async getUserByEmail(email: string) {
+    const query = this.db
       .select()
       .from(userTable)
       .where(eq(userTable.email, email));
+    const user = await query.execute();
     return user[0];
   }
 
