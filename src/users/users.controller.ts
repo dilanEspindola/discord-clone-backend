@@ -6,6 +6,8 @@ import {
   Param,
   UsePipes,
   ParseUUIDPipe,
+  HttpException,
+  HttpStatus,
 } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { UsersService } from "./users.service";
@@ -21,7 +23,19 @@ export class UsersController {
   ) {}
   @Get("")
   async getUsers() {
-    return await this.usersService.getUsers();
+    try {
+      const users = await this.usersService.getUsers();
+
+      throw new Error("erro");
+
+      return users;
+    } catch (error) {
+      console.log(error.message);
+      throw new HttpException(
+        "Se rompio esta mrd",
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   @Get(":id")
