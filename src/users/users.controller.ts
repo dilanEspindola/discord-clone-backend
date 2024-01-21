@@ -1,4 +1,12 @@
-import { Controller, Get, Param, ParseUUIDPipe, Query } from "@nestjs/common";
+import {
+  Controller,
+  Get,
+  HttpException,
+  HttpStatus,
+  Param,
+  ParseUUIDPipe,
+  Query,
+} from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { UsersService } from "./users.service";
 import { IGetUserParams } from "./interfaces";
@@ -11,7 +19,19 @@ export class UsersController {
   ) {}
   @Get("")
   async getUsers() {
-    return await this.usersService.getUsers();
+    try {
+      const users = await this.usersService.getUsers();
+
+      throw new Error("erro");
+
+      return users;
+    } catch (error) {
+      console.log(error.message);
+      throw new HttpException(
+        "Se rompio esta mrd",
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   @Get("/id/:id")
@@ -21,6 +41,6 @@ export class UsersController {
 
   @Get("/find")
   async getUser(@Query() query: IGetUserParams) {
-    return await this.usersService.getUser(query);
+    this.usersService.getUser(query);
   }
 }

@@ -5,6 +5,7 @@ import { UserModule } from "@/users/users.module";
 import { DrizzleModule } from "./drizzle/drizzle.module";
 import { CommonModule } from "./common/common.module";
 import { AuthModule } from "./auth/auth.module";
+import { HealthModule } from "./health/health.module";
 
 @Module({
   imports: [
@@ -17,10 +18,9 @@ import { AuthModule } from "./auth/auth.module";
     UserModule,
     CommonModule,
     AuthModule,
+    HealthModule,
   ],
   controllers: [],
   providers: [],
 })
-export class AppModule {
-  constructor() {}
-}
+export class AppModule {}
