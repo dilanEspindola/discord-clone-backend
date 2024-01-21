@@ -11,10 +11,14 @@ export interface IUser {
   createdAt: Date | string;
 }
 
+export interface IGetUserParams {
+  email?: string;
+  username?: string;
+}
+
 export interface IUserRepository {
   getUsers(): Promise<IUser[]>;
   getUserById(id: string): Promise<IUser>;
-  getUserByUsername(username: string): Promise<IUser>;
-  getUserByEmail(email: string): Promise<IUser>;
+  getUser(params: IGetUserParams): Promise<IUser>;
   createUser(newUser: createUserDto): Promise<string>;
 }

@@ -10,11 +10,12 @@ import { UserRepository } from "./users.repository";
     DrizzleModule,
     JwtModule.register({
       global: true,
-      secret: <string>process.env.JWT_SECRET,
+      secret: `${process.env.JWT_SECRET}`,
       signOptions: { expiresIn: "10m" },
     }),
   ],
   controllers: [UsersController],
   providers: [UsersService, UserRepository],
+  exports: [UsersService, UserRepository],
 })
 export class UserModule {}

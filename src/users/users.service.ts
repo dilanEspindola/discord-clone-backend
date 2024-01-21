@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { UserRepository } from "./users.repository";
 import { createUserDto } from "./dto/create_user.dto";
+import { IGetUserParams } from "./interfaces";
 
 @Injectable()
 export class UsersService {
@@ -12,6 +13,11 @@ export class UsersService {
 
   getUserById(id: string) {
     const user = this.userRepository.getUserById(id);
+    return user;
+  }
+
+  getUser(params: IGetUserParams) {
+    const user = this.userRepository.getUser(params);
     return user;
   }
 

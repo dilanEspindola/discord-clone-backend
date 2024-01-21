@@ -4,6 +4,7 @@ import { configEnv } from "@/config";
 import { UserModule } from "@/users/users.module";
 import { DrizzleModule } from "./drizzle/drizzle.module";
 import { CommonModule } from "./common/common.module";
+import { AuthModule } from "./auth/auth.module";
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { CommonModule } from "./common/common.module";
     DrizzleModule,
     UserModule,
     CommonModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
