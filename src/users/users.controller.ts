@@ -7,22 +7,16 @@ import {
   ParseUUIDPipe,
   Query,
 } from "@nestjs/common";
-import { JwtService } from "@nestjs/jwt";
 import { UsersService } from "./users.service";
 import { IGetUserParams } from "./interfaces";
 
 @Controller("users")
 export class UsersController {
-  constructor(
-    private jwtService: JwtService,
-    private usersService: UsersService,
-  ) {}
+  constructor(private usersService: UsersService) {}
   @Get("")
   async getUsers() {
     try {
       const users = await this.usersService.getUsers();
-
-      throw new Error("erro");
 
       return users;
     } catch (error) {
@@ -41,6 +35,7 @@ export class UsersController {
 
   @Get("/find")
   async getUser(@Query() query: IGetUserParams) {
-    this.usersService.getUser(query);
+    console.log(query);
+    return this.usersService.getUser(query);
   }
 }
