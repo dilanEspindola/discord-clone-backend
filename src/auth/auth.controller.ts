@@ -7,7 +7,7 @@ import {
 } from "@nestjs/common";
 import { ZodValidationPipe } from "@/common/pipes";
 import { createUserDto, createUserSchema } from "@/users/dto/create_user.dto";
-import { hashPassword } from "@/helpers";
+import { hashPassword, httpErrorValidation } from "@/helpers";
 import { UsersService } from "@/users/users.service";
 import { JwtService } from "@nestjs/jwt";
 
@@ -48,7 +48,11 @@ export class AuthController {
         accesToken,
       };
     } catch (error) {
-      throw new HttpException(error.message, error.status);
+      const { message, statusCode } = httpErrorValidation(
+        error.message,
+        error.status,
+      );
+      throw new HttpException(message, statusCode);
     }
   }
 }
