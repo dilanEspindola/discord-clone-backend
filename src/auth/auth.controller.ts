@@ -6,11 +6,10 @@ import {
   UsePipes,
 } from "@nestjs/common";
 import { ZodValidationPipe } from "@/common/pipes";
+import { JwtService } from "@nestjs/jwt";
 import { createUserDto, createUserSchema } from "@/users/dto/create_user.dto";
 import { hashPassword, httpErrorValidation } from "@/helpers";
 import { UsersService } from "@/users/users.service";
-import { JwtService } from "@nestjs/jwt";
-
 import { UserAlreadyExists } from "./exceptions";
 
 @Controller("auth")
