@@ -10,7 +10,13 @@ import { HealthModule } from "./health/health.module";
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: [`.env.development`],
+      envFilePath: [
+        `${
+          process.env.NODE_ENV.includes("development")
+            ? `.env.development`
+            : ".env.production"
+        }`,
+      ],
       isGlobal: true,
       load: [configEnv],
     }),
