@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
-import { drizzle } from "drizzle-orm/planetscale-serverless";
+import { drizzle } from "drizzle-orm/mysql2";
 import * as schemas from "./schemas/";
 import { DRIZZLE_PROVIDE } from "@/helpers";
-import { mysqlDrizzleConnection } from "./helpers";
+import { mysqlLocalConnection } from "./helpers";
 
 @Module({
   providers: [
@@ -10,9 +10,8 @@ import { mysqlDrizzleConnection } from "./helpers";
       provide: DRIZZLE_PROVIDE,
       useFactory: async () => {
         try {
-          // Mysql planetScale connection
-          const conn = mysqlDrizzleConnection();
-          const db = drizzle(conn, { schema: schemas });
+          const conn = await mysqlLocalConnection();
+          const db = drizzle(conn, { schema: schemas, mode: "default" });
 
           return db;
         } catch (error) {
