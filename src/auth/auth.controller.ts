@@ -8,9 +8,14 @@ import {
 import { ZodValidationPipe } from "@/common/pipes";
 import { JwtService } from "@nestjs/jwt";
 import { createUserDto, createUserSchema } from "@/users/dto/create_user.dto";
-import { hashPassword, httpErrorValidation } from "@/helpers";
+import { comparePassword, hashPassword, httpErrorValidation } from "@/helpers";
 import { UsersService } from "@/users/users.service";
-import { UserAlreadyExists } from "./exceptions";
+import {
+  InvalidCredentials,
+  UserAlreadyExists,
+  UserNotFound,
+} from "./exceptions";
+import { LoginDto, loginSchema } from "./dto/login.dto";
 
 @Controller("auth")
 export class AuthController {
@@ -46,6 +51,33 @@ export class AuthController {
         user,
         accesToken,
       };
+    } catch (error) {
+      console.log(error);
+      const { message, statusCode } = httpErrorValidation(
+        error.message,
+        error.status,
+      );
+      throw new HttpException(message, statusCode);
+    }
+  }
+
+  @Post("login")
+  @UsePipes(new ZodValidationPipe(loginSchema))
+  async login(@Body() { email, password }: LoginDto) {
+    try {
+      const userDB = await this.usersService.getUser({ email });
+
+      if (!userDB) throw new UserNotFound();
+
+      if (!(await comparePassword(password, userDB.password)))
+        throw new InvalidCredentials();
+
+      const accesToken = await this.jwtService.signAsync({
+        sub: userDB.id,
+        username: userDB.username,
+      });
+
+      return { userDB, accesToken };
     } catch (error) {
       const { message, statusCode } = httpErrorValidation(
         error.message,

@@ -10,6 +10,8 @@ export const httpErrorValidation = (
 ) => {
   const matcher: Matcher = {
     USER_ALREADY_EXISTS: { message: errorMessage, statusCode },
+    USER_NOT_FOUND: { message: errorMessage, statusCode },
+    INVALID_CREDENTIALS: { message: errorMessage, statusCode },
   };
 
   const defaultError = {
