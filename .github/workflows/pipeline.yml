@@ -1,0 +1,42 @@
+name: deployment backend discord-clone
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        node: [18.x]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.node}}
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build app
+        run: pnpm build
+
+      - name: Install Railway
+        run: npm i -g @railway/cli
+        env:
+          RAILWAY_TOKEN: ${{secrets.RAILWAY_TOKEN}}

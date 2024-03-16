@@ -13,11 +13,11 @@ export const mysqlDrizzleConnection = (): Connection => {
 
 export const mysqlLocalConnection = async (): Promise<mysql.Connection> => {
   const connection = await mysql.createConnection({
-    host: <string>process.env.DB_HOST_LOCAL,
-    user: <string>process.env.DB_USERNAME_LOCAL,
-    password: <string>process.env.DB_PASSWORD_LOCAL,
-    database: <string>process.env.DB_NAME_LOCAL,
-    port: Number(process.env.DB_PORT_LOCAL),
+    host: <string>process.env.DB_HOST,
+    user: <string>process.env.DB_USERNAME,
+    password: <string>process.env.DB_PASSWORD,
+    database: <string>process.env.DB_NAME,
+    port: Number(process.env.DB_PORT),
   });
 
   return connection;

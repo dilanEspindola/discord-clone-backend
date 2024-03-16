@@ -11,11 +11,11 @@ export default defineConfig({
   verbose: true,
   dbCredentials: {
     // uri: process.env.DB_URI,
-    host: process.env.DB_HOST_LOCAL,
-    user: process.env.DB_USERNAME_LOCAL,
-    password: process.env.DB_PASSWORD_LOCAL,
-    database: process.env.DB_NAME_LOCAL,
-    port: Number(process.env.DB_PORT_LOCAL),
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: Number(process.env.DB_PORT),
   },
-  out: "drizzle",
+  out: "drizzle-migration",
 });
