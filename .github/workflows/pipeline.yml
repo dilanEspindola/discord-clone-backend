@@ -28,13 +28,13 @@ jobs:
           version: 8
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       # - name: Lint
       #   run: pnpm lint
 
       - name: Build app
-        run: pnpm build
+        run: npm run build
 
       - name: Install Railway
         run: npm i -g @railway/cli
