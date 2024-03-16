@@ -2,7 +2,7 @@ name: deployment backend discord-clone
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
 
 jobs:
   deploy:
