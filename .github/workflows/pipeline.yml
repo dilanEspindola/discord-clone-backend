@@ -28,18 +28,18 @@ jobs:
           version: 8
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       # - name: Lint
       #   run: pnpm lint
 
       - name: Build app
-        run: npm run build
+        run: pnpm build
 
       - name: Install Railway
-        run: npm i -g @railway/cli
+        run: pnpm i -g @railway/cli
 
       - name: Deploy
         run: railway up
         env:
-          RAILWAY_TOKEN: ${{secrets.RAILWAY_TOKEN}}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
