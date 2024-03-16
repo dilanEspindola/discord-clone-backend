@@ -40,6 +40,6 @@ jobs:
         run: pnpm i -g @railway/cli
 
       - name: Deploy
-        run: railway up --service nest
+        run: railway up --service nest-app
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
