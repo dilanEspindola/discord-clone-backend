@@ -19,8 +19,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "generate:migrate": "drizzle-kit generate:mysql --config=src/drizzle/drizzle.config.ts",
-    "push": "drizzle-kit push:mysql --config=src/drizzle/drizzle.config.ts"
+    "generate:migrate-dev": "set NODE_ENV=development && drizzle-kit generate:mysql --config=src/drizzle/drizzle.config.ts",
+    "push-dev": "set NODE_ENV=development && drizzle-kit push:mysql --config=src/drizzle/drizzle.config.ts",
+    "generate:migrate-prod": "set NODE_ENV=production && drizzle-kit generate:mysql --config=src/drizzle/drizzle.config.ts",
+    "push-prod": "set NODE_ENV=production && drizzle-kit push:mysql --config=src/drizzle/drizzle.config.ts"
   },
   "dependencies": {
     "@nestjs/axios": "^3.0.1",
