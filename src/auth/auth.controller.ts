@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   HttpException,
   Post,
   UsePipes,
@@ -23,6 +24,13 @@ export class AuthController {
     private usersService: UsersService,
     private jwtService: JwtService,
   ) {}
+
+  @Get("signup")
+  get() {
+    return {
+      msg: "hello",
+    };
+  }
 
   @Post("signup")
   @UsePipes(new ZodValidationPipe(createUserSchema))

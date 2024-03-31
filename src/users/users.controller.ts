@@ -6,14 +6,18 @@ import {
   Param,
   ParseUUIDPipe,
   Query,
+  UseGuards,
 } from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { IGetUserParams } from "./interfaces";
+import { Roles, RoleGuard } from "@/common/roles";
 
 @Controller("users")
 export class UsersController {
   constructor(private usersService: UsersService) {}
   @Get("")
+  @Roles("admin")
+  @UseGuards(RoleGuard)
   async getUsers() {
     try {
       const users = await this.usersService.getUsers();
