@@ -11,8 +11,8 @@ export class RoleGuard implements CanActivate {
     const roles = this.reflector.getAllAndOverride<Role[]>("roles", [
       context.getHandler(),
     ]);
-    const data = context.switchToHttp().getRequest<Request>();
-    console.log(roles);
+    const request = context.switchToHttp().getRequest<Request>();
+
     // console.log(context.getHandler());
     return true;
   }
