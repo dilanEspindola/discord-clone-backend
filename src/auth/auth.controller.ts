@@ -1,7 +1,6 @@
 import {
   Body,
   Controller,
-  Get,
   HttpException,
   Post,
   UsePipes,
@@ -9,7 +8,11 @@ import {
 import { ZodValidationPipe } from "@/common/pipes";
 import { JwtService } from "@nestjs/jwt";
 import { createUserDto, createUserSchema } from "@/users/dto/create_user.dto";
-import { comparePassword, hashPassword, httpErrorValidation } from "@/helpers";
+import {
+  comparePassword,
+  hashPassword,
+  httpErrorValidation,
+} from "@/common/helpers";
 import { UsersService } from "@/users/users.service";
 import {
   InvalidCredentials,
@@ -24,13 +27,6 @@ export class AuthController {
     private usersService: UsersService,
     private jwtService: JwtService,
   ) {}
-
-  @Get("signup")
-  get() {
-    return {
-      msg: "hello",
-    };
-  }
 
   @Post("signup")
   @UsePipes(new ZodValidationPipe(createUserSchema))

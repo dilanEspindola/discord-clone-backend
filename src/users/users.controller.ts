@@ -17,7 +17,7 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
   @Get("")
   @UseGuards(AuthGuard, RoleGuard)
-  @Roles("user")
+  @Roles("admin")
   async getUsers() {
     try {
       const users = await this.usersService.getUsers();
@@ -26,7 +26,7 @@ export class UsersController {
     } catch (error) {
       console.log(error.message);
       throw new HttpException(
-        "Se rompio esta mrd",
+        "SOMETHING_WENT_WRONG",
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }

@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { drizzle } from "drizzle-orm/mysql2";
 import * as schemas from "./schemas/";
-import { DRIZZLE_PROVIDE } from "@/helpers";
+import { DRIZZLE_PROVIDE } from "@/common/helpers";
 import { mysqlLocalConnection } from "./helpers";
 
 @Module({
