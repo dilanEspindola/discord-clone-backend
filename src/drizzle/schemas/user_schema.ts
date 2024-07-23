@@ -4,6 +4,7 @@ import {
   mysqlTable,
   date,
   timestamp,
+  mysqlEnum,
 } from "drizzle-orm/mysql-core";
 import { relations } from "drizzle-orm";
 import { profileTable } from "./profile_schema";
@@ -17,6 +18,7 @@ export const userTable = mysqlTable("users", {
   verified: boolean("verified").default(false),
   birthdayDate: date("birthday_date").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
+  role: mysqlEnum("role", ["admin", "user"]),
 });
 
 export const usersRelations = relations(userTable, ({ one }) => ({

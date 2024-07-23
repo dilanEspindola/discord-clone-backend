@@ -8,6 +8,13 @@
       "when": 1711315038651,
       "tag": "0000_last_inhumans",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1711944865945,
+      "tag": "0001_closed_crusher_hogan",
+      "breakpoints": true
     }
   ]
 }

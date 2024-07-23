@@ -3,7 +3,6 @@ import { ConfigModule } from "@nestjs/config";
 import { configEnv } from "@/config";
 import { UserModule } from "@/users/users.module";
 import { DrizzleModule } from "./drizzle/drizzle.module";
-import { CommonModule } from "./common/common.module";
 import { AuthModule } from "./auth/auth.module";
 import { HealthModule } from "./health/health.module";
 
@@ -13,7 +12,7 @@ import { HealthModule } from "./health/health.module";
       envFilePath: [
         `${
           process.env.NODE_ENV.includes("development")
-            ? `.env.development`
+            ? ".env.development"
             : ".env.production"
         }`,
       ],
@@ -22,7 +21,6 @@ import { HealthModule } from "./health/health.module";
     }),
     DrizzleModule,
     UserModule,
-    CommonModule,
     AuthModule,
     HealthModule,
   ],

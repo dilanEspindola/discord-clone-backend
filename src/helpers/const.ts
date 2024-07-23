@@ -1,1 +1,0 @@
-export const DRIZZLE_PROVIDE = "DRIZZLE_CONNECTION";

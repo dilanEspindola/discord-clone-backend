@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD `role` enum('admin','user');
